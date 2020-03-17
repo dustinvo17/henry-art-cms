@@ -1,0 +1,32 @@
+<%=render 'admin_inc/navbar'%>
+<div class="container mx-auto py-24">
+<%= @aboutitem.to_json %>
+  <a  class="grid grid-cols-2">
+ 
+    <div  class="mr-12">
+      <%= image_tag @aboutitem[:about_img] , class:"h-full w-full object-cover current-img",:data => {:id => @aboutitem[:about_img].id} %>
+    </div>
+    <%= form_with(url: '/admin/about',method:'post' , class:"flex flex-col w-full ") do |f|%>
+      <div>
+        <%= f.label :intro, 'Introduction Title' , class:"block text-gray-700 text-sm font-bold mb-2"%>
+        <%= f.text_field :intro,class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", :value => @aboutitem[:intro] %>
+      </div>
+      <div class="my-5">
+        <%= f.label :intro_body, 'Introduction Body' , class:"block text-gray-700 text-sm font-bold mb-2"%>
+        <%= f.text_area :intro_body,size: "20x20", :value => @aboutitem[:intro_body]  ,class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"%>
+      </div>
+      <div>
+        <%= f.label :subintro, 'Subintroduction Title' , class:"block text-gray-700 text-sm font-bold mb-2"%>
+        <%= f.text_field :subintro,class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", :value => @aboutitem[:subintro]  %>
+      </div>
+      <div class="my-5">
+        <%= f.label :subintro_body, 'Subintroduction Body' , class:"block text-gray-700 text-sm font-bold mb-2"%>
+        <%= f.text_area :subintro_body,size: "20x20", :value => @aboutitem[:subintro_body]  ,class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"%>
+      </div>
+      <%= f.hidden_field :imgId,  class:'image-id-field' %>
+      <%= f.submit 'Update',method: :delete, data: {confirm: "Are you sure you want to update this blog?"} ,class:"w-32 p-2 bg-red-400 text-white rounded cursor-pointer update-feature"%>
+    <% end %>
+  </a>
+  <hr class="my-10">
+  <%= render 'admin_inc/gallery' %>
+</div>

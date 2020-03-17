@@ -1,0 +1,21 @@
+<div class="admin-nav fixed h-screen w-56 bg-blue-900 tracking-wider">
+  <div class="h-64 flex flex-col text-center text-white ">
+    <a  href="/users/edit" class="user-sign-in">
+      <%= icon('fas','user', class: 'strong text-2xl') %>
+    </a>
+    <a  href="/admin/home"class="home">HOME</a>
+    <a  href="/admin/gallery" class="gallery">GALLERY</a>
+    <a  href="/admin/setting" class="setting" >SETTINGS</a>
+    <a class="main-page" href="/" target='_blank'>Main Page</a>
+    <% if user_signed_in? %>
+     
+        <%= link_to('Log out', destroy_user_session_path, method: :delete, class: "user-edit") %>
+     
+    <% end %>
+  </div>
+</div>
+<script>
+  page = '<%= @page %>'
+  console.log(page)
+  $(`.${page}`).addClass('active')
+</script>

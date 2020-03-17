@@ -1,0 +1,23 @@
+   <div class="blog-section container mx-auto">
+  <p class="text-center  mx-auto my-10 text-6xl uppercase font-thin tracking-widest font-mono">
+    BLOGS
+
+  </p>
+  <hr class="my-10 w-48 mx-auto">
+   <% @blogitems.each do |k,v|%>
+      <a href="/admin/blog/<%= k %>" class="grid grid-cols-2">
+        <div class="<%= k == 2 || k == 4 ? 'order-1' : ''%>">
+          <%= image_tag @blogitems[k][:blog_img] %>
+        </div>
+        <div class="text-center flex flex-col justify-center font-serif font-thin">
+          <p class="text-5xl uppercase">
+            <%= @blogitems[k][:title]%>
+          </p>
+          <p class="text-xl px-5 leading-loose  my-10">
+            <%= @blogitems[k][:body]%>
+            <%= k %>
+          </p>
+        </div>
+      </a>
+    <%end%>
+  </div>

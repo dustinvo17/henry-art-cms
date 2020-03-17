@@ -1,0 +1,37 @@
+<%= render 'inc/navbar' %>
+
+<div class="bg-green-400 p-5">
+    <div class="container mx-auto flex flex-row items-center text-white">
+        <p class="text-3xl font-mono">
+            Gallery
+        </p>
+        <p class="text-normal ml-auto font-mono">
+            Home   <span class="mx-2">
+                <%= icon('fas','caret-right', class: 'strong') %>
+            </span> Gallery
+        
+        </p>
+    </div>
+
+
+    
+</div>
+
+  <p class="text-center  mx-auto my-10 text-6xl uppercase font-thin tracking-widest font-mono">
+    GALLERY
+  </p>
+   <hr class="my-10 w-48 mx-auto">
+     
+<div class="grid grid-cols-2 gallery-section  py-12 px-12 gap-32">
+    
+    
+<% @user.images.reverse.each do |img| %>
+   
+  <div >
+      <%= image_tag img  %>
+  </div>
+<%end%>
+
+</div>
+<%= render 'inc/footer'%>
+

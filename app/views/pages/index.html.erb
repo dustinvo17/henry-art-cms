@@ -1,0 +1,20 @@
+<div class="h-screen bg-cover background-hero">
+  <%= render 'inc/navbar'%>
+  <%= render 'inc/tophero' %>
+</div>
+
+  <%= render 'inc/feature'%>
+<%= render 'inc/blog'%>
+<%= render 'inc/art_watercolor'%>
+<%= render 'inc/about'%>
+<%= render 'inc/footer'%>
+
+
+
+<script>
+  if($( window ).width() < 700) {
+    $('.blog-section .order-1').removeClass('order-1')
+  }
+
+
+</script>

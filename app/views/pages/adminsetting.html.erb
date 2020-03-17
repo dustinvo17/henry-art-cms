@@ -1,0 +1,31 @@
+<%=render 'admin_inc/navbar'%>
+<div class="container mx-auto py-10">
+  <p class="text-center  mx-auto  text-6xl uppercase font-thin tracking-widest font-mono">
+    SETTING
+  </p>
+
+  <hr class="my-10 w-48 mx-auto">
+  <h1 class="text-3xl text-center uppercase">Section Title</h1>
+  <%= form_with(url: '/admin/setting',method:'post' ) do |f|%>
+    <div class="mb-8">
+      <%= f.label :s1, 'Section 1' , class:"block text-gray-700 text-sm font-bold mb-2"%>
+      <%= f.text_field :s1,class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",:value => @setting.s1 %>
+    </div>
+    <div class="mb-8">
+      <%= f.label :s2, 'Section 2' , class:"block text-gray-700 text-sm font-bold mb-2"%>
+      <%= f.text_field :s2,class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",:value => @setting.s2 %>
+    </div>
+    <div class="mb-8">
+      <%= f.label :s3, 'Section 3' , class:"block text-gray-700 text-sm font-bold mb-2"%>
+      <%= f.text_field :s3,class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",:value => @setting.s3 %>
+    </div>
+    <div class="mb-8">
+      <%= f.label :s4, 'Section 4' , class:"block text-gray-700 text-sm font-bold mb-2"%>
+      <%= f.text_field :s4,class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",:value => @setting.s4 %>
+    </div>
+   
+      <div class="mb-8">
+    <%= f.submit 'Update',method: :post, data: {confirm: "Are you sure you want to update this setting?"} ,class:"w-32 p-2 bg-red-400 text-white rounded cursor-pointer update-feature"%>
+    </div>
+  <% end %>
+</div>

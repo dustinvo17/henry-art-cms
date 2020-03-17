@@ -1,0 +1,30 @@
+  <div class="grid grid-cols-7 gap-4 my-10">
+    <% @gallery.reverse.each do |img|%>
+    <% if (@page == 'gallery')%>
+        <a href="/admin/gallery/<%= img.id%>">
+        <%= image_tag img , class:"w-full h-48 object-cover gal-img" ,:data => {:id => img.id} %>
+      </a>
+        <%else%>
+      <div>
+        <%= image_tag img , class:"w-full h-48 object-cover gal-img cursor-pointer" ,:data => {:id => img.id} %>
+      </div>
+        <%end%>
+    <%end %>
+  </div>
+</div>
+<script>
+  page = '<%= @page %>'
+  if(page == 'home'){
+     $('.image-id-field').val($('.current-img').data('id'))
+     $('.gal-img').click(function(e){
+  
+      let newImage = $(this).clone()
+  
+      $('.current-img').replaceWith($(newImage))
+       $(newImage).addClass('current-img w-full h-full')
+       $('.image-id-field').val($(newImage).data('id'))
+  })
+  }
+ 
+ 
+</script>

@@ -1,0 +1,19 @@
+<div class="water-color-art">
+  <p class="text-center  mx-auto my-10 text-6xl uppercase font-thin tracking-widest font-mono">
+     <%= @setting.s3%>
+  </p>
+  <hr class="my-10 w-48 mx-auto">
+  <div class="grid grid-cols-2 art-section">
+    <div class="frame-area p-10">
+      <%@wtitems.each do|k,v|%>
+        <% unless k == 12 %>
+          <div class="frame-item frame-item-1">
+            <%= image_tag v %>
+          </div>
+        <%end%>
+      <%end%>
+    </div>
+    <div class="p-10 colors-area">
+      <%= image_tag @wtitems[12] %>
+    </div>
+  </div>

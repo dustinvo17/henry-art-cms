@@ -1,0 +1,32 @@
+<div class="w-full top-0 left-0 navbar-container z-50  <%= defined?(@homepage) ? 'text-white' : '' %>" data-query='<%= defined?(@homepage) ? 1 : 0 %>'>
+  <div class="container mx-auto">
+    <div class="flex bg-transparent navbar">
+      <div class="flex mx-auto ">
+        <%= link_to 'Home' , root_path, class:"mr-10 py-6 " %>
+        <%= link_to 'Gallery' , gallery_path , class:"mr-10 py-6" %>
+        <%= link_to 'About' , about_path  , class:"py-6 "%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  $(window).on('scroll',function() {
+      if($(window).scrollTop() > 50) {
+             $('.navbar-container').addClass('fixed')
+      $('.navbar-container').css({background:'rgba(255,255,255,0.8)'})
+      $('.navbar-container').removeClass('text-white')
+      }
+      else {
+                $('.navbar-container').removeClass('fixed')
+      $('.navbar-container').css({background:'transparent'})
+    
+      if($('.navbar-container').data('query') == 1)
+          $('.navbar-container').addClass('text-white')
+      }
+  
+  
+  
+  })
+</script>

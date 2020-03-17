@@ -1,0 +1,45 @@
+<%=render 'admin_inc/navbar'%>
+
+<div class="container mx-auto">
+  <h2 class="text-center text-3xl ">Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put },class:"bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 ") do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field mb-4">
+    <%= f.label :email, class:"block text-gray-700 text-sm font-bold mb-2"%><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field mb-4">
+    <%= f.label :password , class:"block text-gray-700 text-sm font-bold mb-2" %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password", class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field mb-4">
+    <%= f.label :password_confirmation , class:"block text-gray-700 text-sm font-bold mb-2" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password , class:"block text-gray-700 text-sm font-bold mb-2" %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" ,class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update", class:"w-24 p-2 bg-red-400 text-white rounded cursor-pointer update-feature mb-8 mt-4" %>
+  </div>
+<% end %>
+
+
+
+
+</div>

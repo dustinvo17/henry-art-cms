@@ -1,0 +1,16 @@
+<div class="portfolio-section">
+  <p class="text-center  mx-auto my-10 text-6xl uppercase font-thin tracking-widest font-mono">
+    <%= @setting.s1%>
+  </p>
+  <div class="portfolio-products py-12 px-12">
+    <% @imgids.each do |img|%>
+   
+      <div>
+      <a href="/admin/feature/<%= img.id %>">
+           <%= image_tag @features[img.id]  %>
+      </a>
+       
+      </div>
+    <%end%>
+  </div>
+</div>

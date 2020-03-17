@@ -1,0 +1,327 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+ $main-color : #68D391;
+ @keyframes zoom {
+    0% {
+      background-size: 0% 100% ;
+  
+    }
+ 
+    100% {
+      background-size: 100%  100%;
+    }
+  }
+  @keyframes increase {
+    0% {transform:scale((1.2)) rotate(5deg) }
+    100% {transform:scale((1)) rotate(0deg)}
+}
+@keyframes slide-left {
+    from {
+      margin-left: -100%;
+      opacity: 0;
+    }
+  
+    to {
+      margin-bottom: 0%;
+      opacity: 1;
+
+    }
+  }
+  @keyframes slide-show {
+    from {
+
+      opacity: 0;
+    }
+  
+    to {
+    
+      opacity: 1;
+
+    }
+  } 
+  .navbar {
+    animation:slide-show 2s;
+      a:hover {
+        color:$main-color;
+      }
+  }
+.background-hero {
+    position: relative;
+    overflow: hidden;
+    &:after {
+        content:'';
+        position: absolute;
+        z-index: 1; 
+        left:0;
+        bottom: 0;
+    }
+    &:before {
+        
+        content: '';
+        width:100%;
+        height:100%;
+        position: absolute;
+        top:0;
+        left:0;
+        backface-visibility: hidden;
+        transform:translateZ(0) scale(1,1) ;
+        background:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) center center / cover no-repeat, 
+        url("https://images.unsplash.com/photo-1471666875520-c75081f42081?ixlib=rb-1.2.1&auto=format&fit=crop&w=1438&q=80") 
+        center top / cover no-repeat rgb(255, 255, 255);
+        animation:increase 20s linear 5ms;
+        transition:all 0.2 ease-in-out;
+        z-index: -2;
+    }
+ 
+}
+.hero-content {
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+    letter-spacing: 4px;
+    & .hero-top {
+        animation:slide-show 2s;
+    }
+    & .hero-bottom {
+        animation:slide-left 2s;
+        
+    }
+    @media screen and (max-width:700px) { 
+      & .hero-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+    }
+  
+}
+
+.portfolio-products {
+    background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://images.unsplash.com/photo-1517219854193-cd7963d98ad4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows:repeat(2,350px);
+    grid-gap:3rem;
+    @media screen and (max-width:700px) {
+        padding-left:1.5rem!important;
+        padding-right:1.5rem!important;
+        display:flex!important;
+        flex-direction: column;
+        & > div {
+          &:not(:last-child){
+            margin-bottom: 2rem;
+          }
+        }
+     }
+    
+    & img {
+        width:100%;
+        height:100%;
+        object-fit: cover;
+    }
+    & div {
+        border:12px solid white;
+      
+    }
+    & div:nth-child(2) {
+        grid-row: 1/3;
+        grid-column: 2/3;
+    }
+    & div:nth-child(4) {
+        grid-row: 1/3;
+        grid-column: 4/-1;
+    }
+   
+}
+.blog-section {
+    & img {
+        width:100%;
+        max-height:700px;
+        object-fit: cover;
+    }
+    @media screen and (max-width:700px) {
+      & > div {
+        display:flex!important;
+        flex-direction: column;
+        
+      }
+     
+     
+      
+   }
+  
+}
+.art-section {
+  @media screen and (max-width:700px) {
+      display:flex!important;
+      flex-direction: column;
+      
+    }
+   
+}
+.frame-area {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows:repeat(2,250px);
+    grid-gap:1.5rem;
+    & img {
+        width:100%;
+        height:100%;
+        object-fit: cover;
+    }
+    & .frame-item {
+        &:nth-child(2) {
+            grid-row: 1/3;
+            grid-column: 2/3;
+        }
+    }
+    @media screen and (max-width:700px) {
+        display:flex;
+        flex-direction: column;
+        padding:1.5rem!important;
+        & .frame-item {
+          &:not(:last-child) {
+            margin-bottom: 2rem;
+          }
+        }
+        
+      }
+    
+}
+
+.colors-area {
+  @media screen and (max-width:700px) {
+  
+    padding:1.5rem!important;
+    
+  }
+    & img {
+        width:100%;
+        height:100%;
+        object-fit: cover;
+    }
+}
+.about-section-content {
+  @media screen and (max-width:700px) {
+    display:flex!important;
+    flex-direction: column;
+    text-align: center;
+    & img {
+      margin-bottom: 2rem;
+    }
+    & > div {
+      &:nth-child(1) {
+        padding:1.5rem!important;
+        margin-right: 0!important;
+      }
+    }
+    
+  }
+}
+
+  @media screen and (max-width:700px) {
+    .text-6xl {
+    font-size:2rem!important;
+  }
+  .text-5xl {
+    font-size:1.5rem!important;
+  }
+    
+  }
+
+hr {
+  overflow: visible; /* For IE */
+  padding: 0;
+  border: none;
+  border-top: medium double #333;
+  color: #333;
+  text-align: center;
+}
+hr:after {
+  content: "§";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 1.5em;
+  padding: 0 0.25em;
+  background: white;
+}
+
+.fa-instagram { 
+  color:#d6249f;
+ 
+
+  }
+.fa-facebook {
+  
+  color:#4267B2;
+}
+.gallery-section {
+ 
+  @media screen and (max-width:700px) {
+    display:flex!important;
+    flex-direction: column;
+    & > div {
+      &:not(:last-child) {
+        margin-bottom: 4rem;
+      }
+    }
+  }
+ 
+  background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://images.unsplash.com/photo-1517219854193-cd7963d98ad4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
+  & div {
+    
+  }
+  & img {
+    
+
+    width: 100%;
+    border:12px solid white;
+    outline: 20px solid black;
+  
+   
+  }
+}
+.admin-nav {
+  & a {
+    margin-bottom:5rem;
+    padding:1.5rem 0  ;
+    text-transform: uppercase;
+    font-size:1.5rem;
+    &:hover:not(.active) {
+      transform: scale(1.1);
+      color:#68d391;
+    }
+    
+  }
+}
+.active {
+
+  background-color: #68d391;
+}
+.admin-gallery {
+
+    & img {
+      width:100%;
+      height:350px;
+      object-fit: cover;
+    }
+  
+ 
+
+}

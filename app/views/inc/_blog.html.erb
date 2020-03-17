@@ -1,0 +1,24 @@
+<div class="blog-section">
+  <p class="text-center  mx-auto my-10 text-6xl uppercase font-thin tracking-widest font-mono">
+        <%= @setting.s2%>
+    
+  </p>
+  <hr class="my-10 w-48 mx-auto">
+
+   <% @blogitems.each do |k,v|%>
+      <div class="grid grid-cols-2">
+        <div class="<%= k == 2 || k == 4 ? 'order-1' : ''%>">
+          <%= image_tag @blogitems[k][:blog_img] %>
+        </div>
+        <div class="text-center flex flex-col justify-center font-serif font-thin">
+          <p class="text-5xl uppercase">
+            <%= @blogitems[k][:title]%>
+          </p>
+          <p class="text-xl px-5 leading-loose  my-10">
+            <%= @blogitems[k][:body]%>
+            <%= k %>
+          </p>
+        </div>
+      </div>
+    <%end%>
+  </div>

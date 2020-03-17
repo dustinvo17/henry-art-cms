@@ -1,0 +1,17 @@
+<%=render 'admin_inc/navbar'%>
+<div class="container mx-auto py-24 ">
+  <div class="flex flex-row justify-between">
+  </div>
+  <div class="flex justify-start mx-auto items-center">
+    <div class="w-64 h-64 mr-8">
+      <%= image_tag @image, class:"current-img w-full h-full " ,:data => {:id => @image.id} %>
+    </div>
+    <%= form_with(url: '/admin/feature',method:'post' ) do |f|%>
+      <%= f.hidden_field :featureId, :value => @featureId %>
+      <%= f.hidden_field :imageId , class:'image-id-field'%>
+      <%= f.submit 'Update',method: :delete, data: {confirm: "Are you sure you want to update this photo?"} ,class:"p-2 bg-red-400 text-white rounded cursor-pointer update-feature"%>
+    <% end %>
+
+  </div>
+  <hr class="my-10">
+  <%= render 'admin_inc/gallery' %>

@@ -1,0 +1,2 @@
+class Watercolor < ApplicationRecord
+end
