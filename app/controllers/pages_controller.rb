@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   before_action :find_watercolor, only:[:admin,:index,:adminwt]
   before_action :find_about, only:[:admin,:index,:about,:adminabout]
   before_action :find_user,except: [:about]
-  before_action :find_setting, only:[:adminsetting, :index,:about]
+  before_action :find_setting, only:[:adminsetting, :index,:about,:admin]
   before_action :find_gallery, only:[:admingallery,:adminfeature,:adminblog,:adminwt,:adminabout]
   def index
     
@@ -142,7 +142,7 @@ class PagesController < ApplicationController
     # Create a map with key is feature id and value is active storage image
     @user = User.find(1)
     @features = {}
-    @imgids = Feature.all
+    @imgids = Feature.all.order(:id)
     puts @imgids.to_json
     @imgids.each do |item|
       @features[item.id] = @user.images.find(item.img_detail)
@@ -159,7 +159,7 @@ class PagesController < ApplicationController
        # Create a map with key is blog_id id and value is blog itself and img storage
     @blogitems = {}
     @user = User.find(1)
-    @blogs = Blog.all
+    @blogs = Blog.all.order(:id)
     @blogs.each do |b|
       @blogitems[b.id] = {title: b.title, body: b.body, blog_img:@user.images.find(b.blog_img) }
     end
@@ -175,7 +175,7 @@ class PagesController < ApplicationController
   def find_watercolor
     @wtitems = {}
     @user = User.find(1)
-    @watercolors = Watercolor.all
+    @watercolors = Watercolor.all.order(:id)
     @watercolors.each do |wt|
       @wtitems[wt.id] = @user.images.find(wt.imageid)
     end
@@ -197,6 +197,6 @@ class PagesController < ApplicationController
     return @about
   end
   def find_setting
-    @setting = Setting.find(2)
+    @setting = Setting.last
   end
 end

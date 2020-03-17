@@ -2,4 +2,5 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
-remove_column :settings, :theme
+
+Setting.create(:s1 => 'test' , :s2 => 'test', :s3 =>'test', :s4 => 'test')
