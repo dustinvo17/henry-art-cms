@@ -310,7 +310,7 @@ hr:after {
     
   }
   @media screen and (max-width:1400px) { 
-    width:40px!important;
+  
     font-size:12px!important
   }
 }
@@ -329,4 +329,9 @@ hr:after {
  
 
 }
-.admin-nav {}
+.add-mw {
+  @media screen and (max-width:1400px) { 
+  
+    max-width:10rem!important;
+  }
+}
