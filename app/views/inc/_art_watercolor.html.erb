@@ -6,7 +6,7 @@
   <div class="grid grid-cols-2 art-section">
     <div class="frame-area p-10">
       <%@wtitems.each do|k,v|%>
-          <% unless k == @wlastKey %>
+          <% unless k == @lastKey %>
           <div class="frame-item frame-item-1">
             <%= image_tag v %>
           </div>
