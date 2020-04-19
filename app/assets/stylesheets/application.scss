@@ -332,6 +332,6 @@ hr:after {
 .add-mw {
   @media screen and (max-width:1400px) { 
   
-    max-width:10rem!important;
+    max-width: calc(100% - 15rem)!important;
   }
 }
