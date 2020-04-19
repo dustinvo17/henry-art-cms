@@ -311,7 +311,12 @@ hr:after {
   }
   @media screen and (max-width:1400px) { 
   
-    font-size:12px!important
+    font-size:12px!important;
+    transform: scaleX(0.4);
+    &:hover {
+      transform: scaleX(1);
+      transition: 0.2s all ease-in-out;
+    }
   }
 }
 .active {
