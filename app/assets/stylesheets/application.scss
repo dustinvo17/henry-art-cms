@@ -313,6 +313,8 @@ hr:after {
   
     font-size:12px!important;
     transform: scaleX(0.1) translateX(-100%);
+    
+    
     &:hover {
       transform: scaleX(1) ;
       transition: 0.2s all ease-in-out;
@@ -333,11 +335,4 @@ hr:after {
   
  
 
-}
-.add-mw {
-  @media screen and (max-width:1400px) { 
-  
-    max-width: calc(100% - 15rem)!important;
-    margin-left: auto!important;
-  }
 }

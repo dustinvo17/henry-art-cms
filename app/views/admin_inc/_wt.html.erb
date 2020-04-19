@@ -3,17 +3,17 @@
         <%= @setting.s3 %>
   </p>
   <hr class="my-10 w-48 mx-auto">
-  <div class="grid grid-cols-2 art-section">
+  <div class="grid grid-cols-2 container mx-auto">
     <div class="frame-area p-10">
       <%@wtitems.each do|k,v|%>
-          <% unless k == @wtitems.length - 1 %>
-          <div class="frame-item frame-item-1">
+        <% unless k == @wtitems.length  %>
+          <a  href='/admin/wt/<%= k %>' class="frame-item frame-item-1">
             <%= image_tag v %>
-          </div>
+          </a>
         <%end%>
       <%end%>
     </div>
-    <div class="p-10 colors-area">
-       <%= image_tag @wtitems[@wtitems.length - 1] %>
-    </div>
+    <a href="/admin/wt/<%=@wtitems.length %>" class="p-10 colors-area">
+      <%= image_tag @wtitems[@wtitems.length ] %>
+    </a>
   </div>
