@@ -176,6 +176,7 @@ class PagesController < ApplicationController
     @wtitems = {}
     @user = User.find(1)
     @watercolors = Watercolor.all.order(:id)
+    @lastKey = @watercolors[@watercolors.length -1 ].id
     @watercolors.each do |wt|
       @wtitems[wt.id] = @user.images.find(wt.imageid)
     end
